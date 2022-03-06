@@ -1,0 +1,49 @@
+{% extends 'iamheadless_publisher_site_homepages/base.html' %}
+
+{% load iamheadless_publisher_site_homepages_tags %}
+{% load static %}
+
+{% block seo %}
+        <meta name="keywords" content="{{ page.seo_keywords|default:'' }}">
+        <meta name="description" content="{{ page.seo_description|default:'' }}">
+        {% if seo.structured_data|default:None is not None %}
+        <script type="application/ld+json">{{ page.seo_structured_data }}</script>
+        {% endif %}
+{% endblock %}
+
+{% block social_media %}
+        <meta property="og:title" content="{{ social_media.title|default:page.title }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST  }}/static/social_media_default_image.jpg" />
+        <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+        <meta property="og:description" content="{{ page.seo_description|default:'' }}" />
+        <meta property="og:site_name" content="{% project_title %}" />
+        <meta name="twitter:image:alt" content="{{ social_media.title|default:page.title }}" />
+        {% if social_media.twitter_handle|default:None is not None %}
+            <meta name="twitter:site" content="@{{ social_media.twitter_handle }}" />
+        {% endif %}
+        {% if social_media.fb_app_id|default:None is not None %}
+            <meta property="fb:app_id" content="{{ social_media.fb_app_id }}" />
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="container iamheadless-publisher-site-jumbo">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-ms-12 col-xs-12">
+                <h1>
+                    {{ page.title }}
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="container iamheadless-publisher-site-content">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-ms-12 col-xs-12">
+                {% for x in page.content %}
+                    {{ x.render|safe }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
