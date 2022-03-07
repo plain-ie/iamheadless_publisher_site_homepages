@@ -25,7 +25,7 @@ def define(value):
     return value
 
 
-@register.inclusion_tag('iamheadless_publisher_site_homepages/footer.html', takes_context=True)
+@register.inclusion_tag(settings.FOOTER_TEMPLATE, takes_context=True)
 def footer(context):
     request = context['request']
     return {
@@ -33,7 +33,7 @@ def footer(context):
     }
 
 
-@register.inclusion_tag('iamheadless_publisher_site_homepages/main_menu.html', takes_context=True)
+@register.inclusion_tag(settings.MAIN_MENU_TEMPLATE, takes_context=True)
 def main_menu(context):
 
     request = context['request']

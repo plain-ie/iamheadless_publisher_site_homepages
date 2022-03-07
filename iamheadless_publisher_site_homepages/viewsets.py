@@ -9,7 +9,7 @@ from .conf import settings
 
 class HomepageViewSet(ItemViewSet):
 
-    template = f'{settings.APP_NAME}/item.html'
+    template = settings.TEMPLATE
 
     def get(self, request, language=None):
 
