@@ -24,7 +24,7 @@ class Settings:
         return getattr(
             dj_settings,
             self.VAR_FOOTER_TEMPLATE,
-            f'{APP_NAME}/footer.html'
+            f'{self.APP_NAME}/footer.html'
         )
 
     @property
@@ -32,7 +32,7 @@ class Settings:
         return getattr(
             dj_settings,
             self.VAR_MAIN_MENU_TEMPLATE,
-            f'{APP_NAME}/main_menu.html'
+            f'{self.APP_NAME}/main_menu.html'
         )
 
     @property
@@ -40,7 +40,7 @@ class Settings:
         return getattr(
             dj_settings,
             self.VAR_TEMPLATE,
-            f'{APP_NAME}/item.html'
+            f'{self.APP_NAME}/item.html'
         )
 
     def __getattr__(self, name):

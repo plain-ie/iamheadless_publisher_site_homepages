@@ -1,7 +1,9 @@
 from django.shortcuts import render, reverse, redirect
+from django.utils.decorators import method_decorator
 
 from iamheadless_publisher_site import utils as iamheadless_publisher_site_utils
 from iamheadless_publisher_site.conf import settings as iamheadless_publisher_site_settings
+from iamheadless_publisher_site import decorators as iamheadless_publisher_site_decorators
 from iamheadless_publisher_site.viewsets.item import ItemViewSet
 
 from .conf import settings
@@ -11,6 +13,7 @@ class HomepageViewSet(ItemViewSet):
 
     template = settings.TEMPLATE
 
+    @method_decorator(iamheadless_publisher_site_decorators.has_allowed_language(allow_none=True), name='dispatch')
     def get(self, request, language=None):
 
         if language is None:
