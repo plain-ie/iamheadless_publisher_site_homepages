@@ -50,7 +50,7 @@ def main_menu(context):
     return {
         'brand_image': None,
         'brand_link': home_url,
-        'brand_title': request.META['HTTP_HOST'],
+        'brand_title': settings.PROJECT_TITLE,
         'language': language,
         'language_links': language_links,
         'request': request,
