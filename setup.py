@@ -29,7 +29,7 @@ setup(
 
     # Dependent packages (distributions)
     install_requires=[
-        "Django==4.0.3",
+        "Django==4.0.1",
     ],
 
 )
