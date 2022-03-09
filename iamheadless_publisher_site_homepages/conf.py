@@ -15,6 +15,16 @@ class Settings:
 
     URLNAME_HOMEPAGE = 'site-homepage'
 
+    VAR_TEMPLATE = f'{VAR_PREFIX}_TEMPLATE'
+
+    @property
+    def TEMPLATE(self):
+        return getattr(
+            dj_settings,
+            self.VAR_TEMPLATE,
+            f'{self.APP_NAME}/item.html'
+        )
+
     def __getattr__(self, name):
         return getattr(dj_settings, name)
 
