@@ -9,6 +9,9 @@ setup(
     author="Maris Erts",
     author_email="maris@plain.ie",
 
+    # Version number (initial):
+    version="0.0.1",
+
     # Packages
     packages=["iamheadless_publisher_site_homepages"],
 
