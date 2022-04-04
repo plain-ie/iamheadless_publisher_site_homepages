@@ -10,7 +10,6 @@ from .urls import urlpatterns
 
 class HomepageContentPydanticModel(BaseItemContentsPydanticModel):
     title: str
-    slug: str
     language: str
     content: Optional[str]
     seo_keywords: Optional[str]
